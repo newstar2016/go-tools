@@ -1,0 +1,5 @@
+micro_index_db: root:rnH!FqKAw4wEynGF@(10.66.156.128:3306)/hwj_ad_test
+
+#redis配置信息
+redis_host: "10.66.142.121:6379"
+redis_password: "Ysr5j9vXDaurG$MM"

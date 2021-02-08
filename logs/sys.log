@@ -1,0 +1,20 @@
+INFO: 2021/02/08 14:38:05 server.go:40: info
+ERROR: 2021/02/08 14:46:17 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/08 14:46:44 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/08 17:23:22 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/08 17:25:17 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/08 17:26:04 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/08 17:27:55 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/08 17:31:10 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/08 17:31:31 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/08 17:32:37 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/08 17:50:40 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/08 17:50:58 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/08 17:53:19 server.go:41: 已经处理到企业，企业ID:96519191699584
+ERROR: 2021/02/08 17:53:20 service.go:31: 插入小程序AddWxAppConfig出错，err=sql: converting argument $1 type: unsupported type db.WxAppConfig, a struct
+INFO: 2021/02/08 17:53:37 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/08 17:54:43 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/08 17:57:00 server.go:41: 已经处理到企业，企业ID:96519191699584
+ERROR: 2021/02/08 17:57:00 service.go:31: 插入小程序AddWxAppConfig出错，err=Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%d.wx_app_config (appid,app_type,open_platform_id,bind_status,name,created_at,up' at line 1
+INFO: 2021/02/08 17:58:35 server.go:41: 已经处理到企业，企业ID:96519191699584
+ERROR: 2021/02/08 17:58:36 service.go:31: 插入小程序AddWxAppConfig出错，err=Error 1062: Duplicate entry 'wx26614541808a8101' for key 'PRIMARY'
