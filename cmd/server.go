@@ -39,6 +39,8 @@ var serveCmd = &cobra.Command{
 		db.LoadEnterpriseApp()
 		for k, _ := range db.EnterpriseAppInfo {
 			logger.Info.Println(fmt.Sprintf("已经处理到企业，企业ID:%+v",k))
+			//初始化数据库
+			server.InitDatabase(ctx.New(),k)
 			server.AddWxAppConfig(ctx.New(),k)
 		}
 

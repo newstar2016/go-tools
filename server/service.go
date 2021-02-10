@@ -9,6 +9,11 @@ import (
 )
 
 //获取小程序绑定的开放平台信息
+func InitDatabase(c ctx.Context, e int) {
+	db.DBMicroScrmIndex.CreateEnterpriseDataBase(e)
+}
+
+//获取小程序绑定的开放平台信息
 func AddWxAppConfig(c ctx.Context, e int) {
 	config := &db.WxAppConfig{}
 	op, err := db.DBBossIndex.GetOpenPlatformInfo(e, db.BossDbName)

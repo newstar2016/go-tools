@@ -18,3 +18,13 @@ INFO: 2021/02/08 17:57:00 server.go:41: 已经处理到企业，企业ID:9651919
 ERROR: 2021/02/08 17:57:00 service.go:31: 插入小程序AddWxAppConfig出错，err=Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%d.wx_app_config (appid,app_type,open_platform_id,bind_status,name,created_at,up' at line 1
 INFO: 2021/02/08 17:58:35 server.go:41: 已经处理到企业，企业ID:96519191699584
 ERROR: 2021/02/08 17:58:36 service.go:31: 插入小程序AddWxAppConfig出错，err=Error 1062: Duplicate entry 'wx26614541808a8101' for key 'PRIMARY'
+INFO: 2021/02/10 11:03:10 server.go:41: 已经处理到企业，企业ID:96519191699584
+INFO: 2021/02/10 11:07:11 server.go:41: 已经处理到企业，企业ID:114
+INFO: 2021/02/10 11:09:12 server.go:41: 已经处理到企业，企业ID:114
+INFO: 2021/02/10 11:11:44 server.go:41: 已经处理到企业，企业ID:114
+INFO: 2021/02/10 11:14:59 server.go:41: 已经处理到企业，企业ID:110
+INFO: 2021/02/10 11:18:32 server.go:41: 已经处理到企业，企业ID:110
+INFO: 2021/02/10 11:19:36 server.go:41: 已经处理到企业，企业ID:110
+INFO: 2021/02/10 11:20:34 server.go:41: 已经处理到企业，企业ID:110
+INFO: 2021/02/10 11:21:20 server.go:41: 已经处理到企业，企业ID:110
+INFO: 2021/02/10 11:29:06 server.go:41: 已经处理到企业，企业ID:110
