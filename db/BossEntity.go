@@ -1,9 +1,7 @@
 package db
 
 type AppInfo struct {
-	AppID        string  //小程序的appid
-	OpenAppID    string  //公众号名称
-	ExternalName string  //企业微信名称
+	OfficialOpenAppID    string  //公众号绑定的开放平台的appid
 }
 
 var EnterpriseAppInfo map[int]AppInfo

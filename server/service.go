@@ -22,7 +22,7 @@ func AddWxAppConfig(c ctx.Context, e int) {
 		logger.Error.Println(fmt.Sprintf("GetOpenPlatformInfo出错，err=%+v", err))
 	}
 
-	config.AppID = db.EnterpriseAppInfo[e].AppID
+	config.AppID = op.ShopAppID
 	config.AppType = common.AppTypeEnum.Shop
 	config.Name = op.Name
 	config.OpenPlatformID = op.ShopBindPlatformAppID
@@ -39,11 +39,7 @@ func AddWxAppConfig(c ctx.Context, e int) {
 	if op.ExternalAppID != "" {
 		config.AppID = op.ExternalAppID
 		config.AppType = common.AppTypeEnum.External
-		corpName := "未知"
-		if db.EnterpriseAppInfo[e].ExternalName!=""{
-			corpName=db.EnterpriseAppInfo[e].ExternalName
-		}
-		config.Name = corpName
+		config.Name = op.Name
 		config.OpenPlatformID = op.ExternalBindPlatformAppID
 		config.CreatedAt = op.CreatedAt
 		config.UpdatedAt = op.UpdatedAt
@@ -56,10 +52,10 @@ func AddWxAppConfig(c ctx.Context, e int) {
 	}
 
 	if op.GzhAppID != "" {
-		config.AppID = db.EnterpriseAppInfo[e].OpenAppID
+		config.AppID = op.GzhAppID
 		config.AppType = common.AppTypeEnum.Open
 		config.Name = op.GzhName
-		config.OpenPlatformID = op.GzhAppID
+		config.OpenPlatformID = db.EnterpriseAppInfo[e].OfficialOpenAppID //企业公众号绑定的虚拟开放平台appid
 		config.CreatedAt = op.GzhBindCreatedAt
 		config.UpdatedAt = op.GzhBindUpdatedAt
 		config.BindStatus = op.GzhBindStatus

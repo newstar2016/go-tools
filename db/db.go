@@ -12,7 +12,7 @@ type OpenPlatformInfo struct {
 	ShopAppID                 string `db:"shop_app_id" desc:"小程序appid"`
 	ShopBindPlatformAppID     string `db:"open_app_id" desc:"小程序绑定的虚拟开放平台appid"`
 	ExternalAppID             string `db:"corp_id" desc:"企业微信corp_id"`
-	ExternalBindPlatformAppID string `db:"app_id" desc:"企业微信绑定的开放平台id"`
+	ExternalBindPlatformAppID string `db:"open_app_id" desc:"企业微信绑定的开放平台id"`
 	CreatedAt                 int    `db:"created_at" desc:"创建时间"`
 	UpdatedAt                 int    `db:"updated_at" desc:"更新时间"`
 	GzhBindStatus             int    `db:"bind_status" desc:"公众号解绑状态：绑定状态：0-未知，1-绑定，2-解绑"`
@@ -39,7 +39,7 @@ var BossDbName string
 
 func LoadEnterpriseApp() {
 	EnterpriseAppInfo = make(map[int]AppInfo)
-	EnterpriseAppInfo[96519191699584] = AppInfo{AppID: "", OpenAppID: "", ExternalName: ""}
+	EnterpriseAppInfo[96519191699584] = AppInfo{OfficialOpenAppID: ""}
 }
 
 // LoadMicroScrmIndex 加载scrm索引
@@ -237,7 +237,7 @@ func (db *ToolsDB) GetOpenPlatformInfo(enterpriseID int, dbname string) (*OpenPl
 	//查询小程序的虚拟开放平台appid
 	shopQuery := fmt.Sprintf("select open_app_id from %s.%s where enterprise_id = ?", dbname, "enterprise_virtual_open_platform")
 
-	externalQuery := fmt.Sprintf("select a.corp_id,b.app_id,a.name,a.created_at,a.updated_at from %s.%s a, %s.%s b where a.open_platform_id = b.id and a.id = ?", dbname, "enterprise", dbname, "enterprise_open_platform_config")
+	externalQuery := fmt.Sprintf("select a.corp_id,b.app_id as shop_app_id,a.name,a.created_at,a.updated_at from %s.%s a, %s.%s b where a.id = b.enterprise_id and a.id = ?", dbname, "enterprise", dbname, "enterprise_third_part_account")
 
 	//查询小程序企业开放平台信息
 	if err := db.db.Get(openPlatformInfo, shopQuery, enterpriseID); err != nil {
@@ -257,9 +257,8 @@ func (db *ToolsDB) GetOpenPlatformInfo(enterpriseID int, dbname string) (*OpenPl
 	return openPlatformInfo, nil
 }
 
-//获取公众号的绑定信息
+//获取公众号的信息
 func (db *ToolsDB) GetOfficiallOpenPlatformInfo(enterpriseID int, dbname string, openPlatformInfo *OpenPlatformInfo) error {
-	//查询公众号的虚拟开放平台appid
 	openQuery := fmt.Sprintf("select name as open_name,appid as open_appid,bind_status,created_at as gzh_bind_created_at, updated_at as gzh_bind_updated_at from %s.%s where enterprise_id= ? order by created_at desc limit 1", dbname, "official_account")
 
 	//查询公众号开放平台信息
